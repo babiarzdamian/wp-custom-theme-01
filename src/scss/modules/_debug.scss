@@ -1,0 +1,25 @@
+/* ==========================================================================
+Debugging
+========================================================================== */
+.zzTest {
+    font: 400 .75rem/1.5 Helvetica, sans-serif;
+    background: repeating-linear-gradient(45deg, #fff, #fff 10px, #ffe1e1 10px, #ffe1e1 20px);
+    padding: 1em;
+    margin-top: 45px;
+    border: solid 5px #c00;
+    position: relative;
+}
+.zzTest > * {
+    color: #000 !important;
+}
+.zzTest::before {
+    content: "DEBUG INFO (" attr(data-var) ")";
+    display: block;
+    position: absolute;
+    top: -45px;
+    left: -5px;
+    padding: .5em;
+    background: #c00;
+    color: #fff;
+    font: 600 .75rem/1.5 Helvetica, sans-serif;
+}

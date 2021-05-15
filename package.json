@@ -1,0 +1,56 @@
+{
+  "name": "base",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "init": "./generator/.init.sh",
+    "dev": "gulp",
+    "build": "gulp update --patch && gulp build --prod",
+    "build-minor": "gulp update --minor && gulp build --prod",
+    "build-major": "gulp update --major && gulp build --prod"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.13.14",
+    "@babel/preset-env": "^7.13.12",
+    "@babel/register": "^7.13.14",
+    "autoprefixer": "^9.8.6",
+    "babel-loader": "^8.2.2",
+    "browser-sync": "^2.26.14",
+    "del": "^5.1.0",
+    "fibers": "^5.0.0",
+    "gulp": "^4.0.2",
+    "gulp-bump": "^3.2.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-if": "^3.0.0",
+    "gulp-imagemin": "^6.2.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-template": "^5.0.0",
+    "gulp-webp": "^4.0.1",
+    "gulp-wp-bump": "^0.3.1",
+    "gulp-zip": "^5.1.0",
+    "sass": "^1.32.8",
+    "vinyl-named": "^1.1.0",
+    "webpack-stream": "^5.2.1",
+    "yargs": "^15.4.1"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.9.2",
+    "@splidejs/splide": "^2.4.21",
+    "bootstrap": "^5.0.0-beta3",
+    "dotenv": "^8.2.0",
+    "imagemin-webp": "^6.0.0",
+    "popper.js": "^1.16.1",
+    "smooth-scroll": "^16.1.3"
+  },
+  "browserslist": [
+    "last 4 version",
+    "IE 8-11"
+  ]
+}

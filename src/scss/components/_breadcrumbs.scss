@@ -1,0 +1,44 @@
+.breadcrumbs {
+    @include flex(flex-start, center);
+
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: 28px;
+    margin-bottom: 36px;
+    letter-spacing: normal;
+    color: $gray-500;
+
+    a {
+        color: inherit;
+        transition: $transition-base;
+
+        &:hover, &:focus {
+            color: $black;
+        }
+    }
+
+    @include mq(md) {
+        display: none;
+    }
+
+    &-home {
+        display: inline-block;
+        color: inherit;
+        margin-top: -2px;
+    }
+
+    &-separator {
+        margin: 0 11px;
+        color: inherit;
+
+        &-last {
+            color: $black;
+        }
+    }
+
+    .breadcrumb {
+        &_last {
+            color: $black;
+        }
+    }
+}

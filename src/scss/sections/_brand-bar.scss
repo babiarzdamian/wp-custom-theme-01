@@ -1,0 +1,162 @@
+.brand-bar {
+    $brand-bar-h: 67px;
+    $brand-bar-mobile-h: 354px;
+    @include flex(flex-start);
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: $brand-bar-h;
+    width: 100%;
+    background: $white;
+    z-index: $zindex-fixed;
+    box-shadow: 0px -3px 26px rgba($black, 0.16);
+    transition: $transition-base;
+
+    @include mq(xl) {
+        padding: 30px;
+    }
+
+    @include mq(lg) {
+        transform: translateY(250px);
+        padding: 14px 15px;
+        align-items: flex-start;
+        height: $brand-bar-mobile-h;
+    }
+
+    &.open {
+        height: 128px;
+
+        @include mq(lg) {
+            height: $brand-bar-mobile-h;
+            transform: translateY(225px);
+        }
+
+        @include mq(md) {
+            transform: translateY(0);
+        }
+
+        .brand-bar {
+            &-logo {
+                transform: scale(1);
+            }
+
+            &-title,
+            &-button {
+                @include mq(md) {
+                    height: 64px;
+                }
+            }
+        }
+    }
+
+    &-row {
+        @include mq(lg) {
+            align-content: flex-start;
+            height: $brand-bar-mobile-h;
+        }
+    }
+
+    &-list {
+        @include flex(space-between);
+
+        @include mq(lg) {
+            flex-wrap: wrap;
+            padding: 0 60px;
+        }
+
+        @include mq(md) {
+            padding: 0;
+            height: 75%;
+        }
+
+        .clear {
+            flex-basis: 100%;
+        }
+    }
+
+    &-title {
+        @include flex(center);
+
+        flex: 1 0 300px;
+        font-size: 24px;
+        line-height: 27px;
+        color: $gray-500;
+
+        @include mq(xl) {
+            flex-basis: 200px;
+        }
+
+        @include mq(lg) {
+            flex-basis: 50%;
+            justify-content: flex-start;
+            font-size: 16px;
+            line-height: 17px;
+        }
+    }
+
+    &-button {
+        @include flex(flex-end);
+
+        flex: 0 0 210px;
+
+        @include mq(lg) {
+            flex-basis: 40%;
+            flex-shrink: 1;
+        }
+        
+        .btn {
+            &.open {
+                svg {
+                    transform: rotate(180deg);
+                }
+            }
+
+            @include mq(md) {
+                height: auto;
+                font-size: 12px;
+                line-height: 15px;
+                padding: 3px 10px;
+            }
+        }
+    }
+
+    &-title,
+    &-button {
+        transition: $transition-base;
+
+        @include mq(md) {
+            height: 24px;
+        }
+    }
+
+    &-link {
+        @include flex(center);
+        
+        filter: saturate(0);
+        opacity: 0.35;
+        transition: $transition-base;
+
+        &:hover,
+        &:focus {
+            filter: none;
+            opacity: 1;
+        }
+
+        @include mq(md) {
+            max-height: 64px;
+            flex-basis: 33%;
+        }
+    }
+
+    &-logo {
+        transform: scale(.55);
+        transition: $transition-base;
+
+        @include mq(lg) {
+            transform-origin: top;
+            max-height: 64px;
+            max-width: 84px;
+        }
+    }
+}

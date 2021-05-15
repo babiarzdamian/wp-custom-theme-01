@@ -1,0 +1,37 @@
+.pill {
+    padding: 9px 20px 8px 20px;
+    margin: 0 20px 0 -20px;
+    border-radius: 0 $border-radius $border-radius 0;
+    border: 1px solid $primary-800;
+    width: max-content;
+    font-size: 24px;
+    line-height: 25px;
+    font-weight: 900;
+    color: $primary-600;
+    
+    @include mq(lg) {
+        border-radius: 0 $border-radius-sm $border-radius-sm 0;
+
+        font-size: 18px;
+        line-height: 25px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+
+    &-bg {
+        padding-top: 2px;
+        padding-bottom: 5px;
+        color: $white;
+        border: 0;
+        background-image: $gradient-primary;
+        font-size: 32px;
+        line-height: 39px;
+
+        @include mq(lg) {
+            font-size: 24px;
+            line-height: 29px;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    }
+}

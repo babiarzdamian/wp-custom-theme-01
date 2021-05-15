@@ -1,0 +1,157 @@
+.card {
+    $card-w: 240px;
+    $card-mobile-w: 180px;
+
+    height: 405px;
+    width: $card-w;
+    border: 0;
+
+    @include mq(lg) {
+        height: 293px;
+        width: $card-mobile-w;
+    }
+
+    &-img-top {
+        $image-margin: 20px;
+
+        margin: $image-margin;
+        height: $card-w - $image-margin * 2;
+        width: $card-w - $image-margin * 2;
+        object-fit: contain;
+        object-position: center;
+
+        @include mq(lg) {
+            $image-margin: 10px;
+            margin: $image-margin;
+            height: $card-mobile-w - $image-margin * 2;
+            width: $card-mobile-w - $image-margin * 2;
+        }
+    }
+
+    &-body {
+        @include flex(space-between, stretch);
+
+        flex-direction: column;
+        position: relative;
+        padding: 20px;
+
+        @include mq(lg, min) {
+            margin-top: -6px;
+        }
+
+        @include mq(lg) {
+            padding: 10px 10px 5px;
+        }
+
+        &::before {
+            @include ps-el;
+            @include absolute(2px, 20px, false, 20px);
+
+            background: rgba($gray-700, .17);
+            height: 1px;
+
+            @include mq(lg) {
+                top: -15px;
+            }
+        }
+    }
+
+    &-title {
+        font-size: 18px;
+        line-height: 21px;
+        height: 63px;
+        overflow: hidden;
+        margin-bottom: 0;
+
+        @include mq(lg) {
+            font-size: 14px;
+            line-height: 18px;
+            height: 56px;
+        }
+    }
+
+    &-info {
+        @include flex(space-between, flex-end);
+        
+        padding: 20px;
+        padding-top: 0;
+
+        @include mq(lg) {
+            padding: 5px 10px 14px;
+        }
+    }
+
+    &-price {
+        @include flex(center, flex-start);
+
+        position: relative;
+        flex-direction: column;
+
+        .amount {
+            font-size: 20px;
+            line-height: 24px;
+
+            @include mq(lg) {
+                font-size: 18px;
+                line-height: 22px;
+            }
+        }
+
+        del {
+            @include absolute(-20px);
+
+            > .amount {
+                font-size: 12px;
+                line-height: 15px;
+                color: $gray-600;
+            }
+        }
+
+        ins {
+            text-decoration: none;
+
+            > .amount {
+                color: $red;
+                font-weight: 700;
+            }
+        }
+    }
+
+    .btn-link {
+        margin-bottom: -5px;
+
+        @include mq(lg) {
+            font-size: 18px;
+        }
+    }
+
+    &-product {
+        margin-right: 25px;
+        margin-bottom: 25px;
+    }
+
+    &-small {
+        height: 270px;
+        width: 180px;
+        margin-right: 10px;
+        margin-bottom: 0;
+
+        .card {
+            &-body {
+                padding-top: 10px;
+            }
+
+            &-title {
+                font-size: 14px;
+                line-height: 18px;
+                height: 72px;
+            }
+
+            &-img-top {
+                height: 160px;
+                width: 160px;
+                margin: 10px;
+            }
+        }
+    }
+}

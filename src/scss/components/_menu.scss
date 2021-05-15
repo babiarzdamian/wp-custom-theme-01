@@ -1,0 +1,125 @@
+.menu {
+    &-header {
+        padding: 0 35px 0 30px;
+        margin-bottom: 0;
+
+        .menu {
+            &-item {
+                list-style-type: none;
+                display: block;
+                font-size: 20px;
+                line-height: 21px;
+                font-weight: 700;
+
+                &:not(:last-child) {
+                    border-bottom: 1px solid $gray-200;
+                }
+
+                > a {
+                    padding: 22px 0 23px;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+
+                    @include hmq(xxl) {
+                        padding: 2vh 0 2vh;
+                        font-size: 18px;
+                        line-height: 21px;
+                    }
+
+                    @include mq(lg) {
+                        padding: 14px 0 15px;
+                        font-size: 18px;
+                        line-height: 21px;
+                    }
+                }
+
+                &-has-children {
+                    $submenu_ns: "sub-menu";
+                    
+                    position: relative;
+                    padding-right: 25px;
+
+                    > a {
+                        &::after {
+                            @include ps-el;
+                            @include absolute(34px, 0);
+
+                            width: 11px;
+                            height: 18px;
+                            background: {
+                                image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8.521' height='14.217' viewBox='0 0 8.521 14.217'%3E%3Cpath fill='%23000' d='M1.413 14.214L-.001 12.8l5.693-5.693-5.693-5.693L1.413 0 8.52 7.107z'/%3E%3C/svg%3E");
+                                size: contain;
+                                repeat: no-repeat
+                            }
+                            transform: rotate(0);
+                            transform-origin: center;
+                            transition: $transition-base;
+                            
+                            @include hmq(xl) {
+                                top: calc(50% - 9px);
+                            }
+
+                            @include mq(lg) {
+                                top: 16px;
+                            }
+                        }
+                    }
+
+                    > .#{$submenu_ns} {
+                        overflow: hidden;
+                        transition: $transition-collapse;
+                        padding-left: 0;
+
+                        .menu {
+                            &-item {
+                                font-weight: 400;
+
+                                &:first-child {
+                                    border-top: 1px solid $gray-200;
+                                }
+
+                                > a {
+                                    font-size: 16px;
+                                    line-height: 21px;
+                                    padding: 6px 0 6px 42px;
+                                }
+                            }
+                        }
+                    }
+
+                    &.open {
+                        a {
+                            &::after {
+                                transform: rotate(90deg);
+                            }
+                        }
+                    }
+                }
+            }
+
+            &-icon {
+                &-wrapper {
+                    flex: 0 0 60px;
+                    height: 44px;
+                    margin-right: 22px;
+
+                    @include mq(lg) {
+                        flex-basis: 40px;
+                    }
+                }
+
+                &,
+                &-wrapper {
+                    @include hmq(xl) {
+                        height: 28px !important; //overriding default woocommerce styles
+                    }
+
+                    @include mq(lg) {
+                        height: 28px !important; //overriding default woocommerce styles
+                    }
+                }
+            }
+        }
+    }
+}

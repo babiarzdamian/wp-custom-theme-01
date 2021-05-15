@@ -1,0 +1,157 @@
+.banner {
+    position: relative;
+    width: 100%;
+
+    &-bg {
+        @include absolute(0, 0, 0, 0);
+        @include flex(center);
+
+        background: $white;
+        overflow: hidden;
+        border-radius: $border-radius;
+        z-index: -1;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    &-content {
+        position: relative;
+    }
+
+    &-hero {
+        padding-bottom: 25px;
+        min-height: 450px;
+        margin-top: 30px;
+
+        @include mq(lg) {
+            margin-top: 20px;
+        }
+
+        .banner {
+            &-bg {
+                @each $brand, $colors in $brand-gradient-base {
+                    &-#{$brand} {
+                        @include linear-gradient-bg(right, ($white, $colors));
+                        
+                        &::after {
+                            $brand-color: map-get($theme-colors, $brand);
+
+                            @include linear-gradient-bg(right, (tint-color($brand-color, 10), $brand-color, shade-color($brand-color, 10)));
+                            @include ps-el;
+                            @include absolute(71%, 0, 0, 0);
+                        }
+                    }
+                }
+            }
+
+            &-content {
+                @include flex(flex-start, flex-start);
+
+                color: $black;
+                height: 770px;
+                padding: 30px 192px;
+                border-radius: $border-radius;
+
+                @include mq(xxl) {
+                    padding-left: 100px;
+                    padding-right: 100px;
+                }
+
+                @include mq(xl) {
+                    padding-left: 30px;
+                    padding-right: 30px;
+                }
+
+                @include mq(lg) {
+                    height: 660px;
+                }
+
+                @include mq(sm) {
+                    padding: 20px 15px;
+                    height: 442px;
+                }
+            }
+
+            &-text {
+                max-width: 640px;
+                z-index: 1;
+            }
+
+            &-image {
+                @include absolute(false, 0, 0);
+
+                z-index: 0;
+
+                @media screen and (max-width: map-get($container-max-widths, 'xxl')) {
+                    width: 59vw;
+                }
+
+                @include mq(md) {
+                    width: 75%;
+                }
+                @include mq(sm) {
+                    max-height: 230px;
+                    object-fit: contain;
+                    object-position: right;
+                }
+            }
+        }
+
+        .title {
+            &-main {
+                font-size: $h1-font-size;
+                line-height: 60px;
+
+                @include mq(xl) {
+                    font-size: 52px;
+                    line-height: 50px;
+                }
+
+                @include mq(lg) {
+                    font-size: 38px;
+                    line-height: 38px;
+                    padding-bottom: 12px;
+                    margin-bottom: 12px;
+                }
+
+                @include mq(md) {
+                    font-size: 24px;
+                    line-height: 26px;
+                }
+            }
+
+            &-subtitle {
+                max-width: 547px;
+
+                @include mq(sm) {
+                    line-height: 18px;
+                }
+            }
+        }
+    }
+
+    &-scroll-btn {
+        @include absolute($bottom: 24px, $left: 50%);
+
+        color: $white;
+        opacity: 0.4;
+        text-align: center;
+        transition: $transition-base;
+        margin-left: -19px;
+
+        @include mq(md) {
+            bottom: 8px;
+        }
+
+        &:hover {
+            color: $white;
+            opacity: 0.8;
+            transform: translateY(10%);
+        }
+    }
+}

@@ -1,0 +1,112 @@
+.offcanvas {
+    &-end {
+        top: $navbar-h + 60px;
+        bottom: unset;
+        border-radius: $border-radius;
+
+        @include hmq(lg) {
+            top: $navbar-mobile-h + 10px;
+        }
+
+        @include mq(lg) {
+            top: $navbar-mobile-h + 30px;
+        }
+
+        @include mq(sm) {
+            top: $navbar-mobile-h;
+            border-radius: 0;
+            width: 100%;
+        }
+
+        &.show {
+            transform: translate(-115px);
+
+            @include mq(lg) {
+                transform: translate(-45px);
+            }
+
+            @include mq(sm) {
+                transform: translate(0);
+            }
+        }
+    }
+
+    &-top {
+        right: 0;
+        top: $navbar-h;
+        left: 0;
+        height: 100vh;
+        max-height: 100%;
+        border-top: 0;
+        transform: translateY(-100%);
+        background: transparent;
+        transition: $transition-base;
+
+        @include hmq(lg) {
+            height: $navbar-mobile-h;
+        }
+
+        @include mq(lg) {
+            top: $navbar-mobile-h;
+        }
+
+        &.show {
+            transform: translateY(0);
+
+            .offcanvas {
+                &-bg {
+                    opacity: .94;
+                }
+            }
+        }
+    }
+
+    &-bg {
+        @include absolute(0, 0, 0, 0);
+
+        opacity: 0;
+        background-image: linear-gradient(to top, $primary 0%, $primary-800 100%);
+        transition: $transition-base;
+    }
+
+    &-backdrop {
+        &::before {
+            opacity: 1;
+        }
+    }
+
+    &-primary {
+        &::before {
+            background-image: linear-gradient(to top, $primary 0%, $primary-800 100%);
+            opacity: .94;
+        }
+    }
+
+    &-closing {
+        &::before {
+            opacity: 0;
+        }
+    }
+
+    .btn {
+        &-close {
+            $close-btn-size: 44px;
+            @include absolute(0,0);
+
+            height: $close-btn-size;
+            width: $close-btn-size;
+            padding: 0;
+            background: {
+                image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44.134' height='43.134' viewBox='0 0 43.134 43.134'%3E%3Cg fill='%23fff'%3E%3Cpath d='M.001 4.243L4.24364069.00035931l38.89087296 38.89087297-4.24264068 4.24264069z'/%3E%3Cpath d='M4.243 43.133L.00035931 38.89035931 38.89123228-.00051365l4.24264069 4.24264068z'/%3E%3C/g%3E%3C/svg%3E");
+                size: cover;
+            }
+            opacity: 1;
+
+            @include mq(lg) {
+                right: 20px;
+                height: $close-btn-size / 2;
+                width: $close-btn-size / 2;
+            }
+        }
+    }
+}

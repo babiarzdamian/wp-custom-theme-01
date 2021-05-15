@@ -1,0 +1,131 @@
+.btn {
+    border-radius: $border-radius-lg;
+    padding-bottom: $btn-padding-y + 1px;
+
+    > .btn-arrow {
+        max-height: 1em;
+        max-width: 1em;
+        margin-left: 15px;
+        margin-bottom: 2px;
+
+        @include mq(md) {
+            margin-left: 5px;
+        }
+    }
+
+    > .btn-icon {
+        vertical-align: text-top;
+        max-height: 1.15em;
+        max-width: 1.15em;
+    }
+
+    &[data-bs-toggle="offcanvas"] {
+        > * {
+            pointer-events: none;
+        }
+    }
+
+    &-primary {
+        background-image: $gradient-primary;
+        border-color: transparent;
+        color: $white;
+    }
+
+    &-outline {
+        &-primary {
+            color: $primary-600;
+        }
+    }
+
+    &-link {
+        padding: 3px;
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+            text-decoration: none;
+        }
+
+        @include mq(lg) {
+            font-size: 12px;
+        }
+    }
+
+    &-circle {
+        $btn-circle-size: 48px;
+        @include flex(center);
+
+        height: $btn-circle-size;
+        width: $btn-circle-size;
+        padding: 0;
+        border-radius: $border-radius-lg;
+
+        @include mq(lg) {
+            height: $btn-circle-size / 2;
+            width: $btn-circle-size / 2;
+
+            > svg {
+                height: $btn-circle-size / 3;
+            }
+        }
+
+        + .btn-circle {
+            margin-left: 10px;
+
+            @include mq(lg) {
+                margin-left: 20px;
+            }
+        }
+
+        &:active, 
+        &.active {
+            color: $white;
+            background-color: $primary;
+        }
+    }
+
+    &-sm {
+        line-height: 21px;
+
+        @include mq(lg) {
+            font-size: 14px;
+            line-height: 17px;
+        }
+    }
+
+    &-xs {
+        height: 29px;
+        border-radius: $border-radius-lg;
+        font-size: 16px;
+        line-height: 19px;
+        padding: 4px 14px;
+    }
+
+    &.loading {
+        position: relative;
+        opacity: .8;
+        pointer-events: none;
+
+        &::after {
+            @include ps-el;
+            @include absolute(.25rem, -20px);
+            @extend .spinner-border;
+            @extend .spinner-border-sm;
+
+            color: $black;
+        }
+    }
+
+    &.added {
+        opacity: 0 !important;
+        display: none !important;
+    }
+}
+
+.added_to_cart {
+    @extend .btn;
+    @extend .btn-dark;
+    @extend .btn-sm;
+
+    padding-top: 3px !important;
+}

@@ -1,0 +1,149 @@
+.title {
+    &-main {
+        position: relative;
+        // padding-bottom: 40px;
+
+        @include mq(lg) {
+            font-size: 32px;
+            line-height: 39px;
+        }
+    }
+
+    &-icon {
+        max-height: 62px;
+        margin-bottom: 20px;
+
+        @include mq(md) {
+            max-height: 35px;
+            margin-bottom: 25px;
+        }
+    }
+
+    &-label {
+        @include letter-spacing(150);
+
+        font-size: 18px;
+        line-height: 22px;
+        text-transform: uppercase;
+
+        @include mq(sm) {
+            font-size: 12px;
+            line-height: 15px;
+            margin-bottom: 10px;
+        }
+    }
+
+    &-subtitle {
+        font-size: 20px;
+        line-height: 25px;
+        font-weight: 400;
+        margin-bottom: 42px;
+
+        @include mq(lg) {
+            font-size: 18px;
+            line-height: 22px;
+        }
+
+        @include mq(sm) {
+            font-size: 14px;
+            line-height: 16px;
+            margin-bottom: 10px;
+        }
+    }
+
+    &-cta {
+        font-weight: 700;
+
+        @include mq(lg) {
+            font-size: 18px;
+            padding: 9px 17px;
+        }
+
+        @include mq(md) {
+            font-size: 16px;
+            padding-top: 3px;
+            padding-bottom: 3px;
+        }
+    }
+
+    &-sm {
+        height: auto;
+
+        .title {
+            &-main {
+                font-size: 32px;
+                line-height: 39px;
+                padding: 0;
+                margin-top: 50px;
+
+                &::after {
+                    display: none;
+                    height: 4px;
+
+                    @include mq(lg) {
+                        height: 3px;
+                    }
+                }
+
+                @include mq(lg) {
+                    font-size: 24px;
+                    line-height: 29px;
+                }
+            }
+
+            &-subtitle {
+                font-size: 18px;
+                line-height: 22px;
+                font-weight: 400;
+
+                @include mq(lg) {
+                    font-size: 16px;
+                    line-height: 19px;
+                    display: block;
+                }
+            }
+
+            &-cta {
+                font-weight: 700;
+            }
+        }
+    }
+
+    &-separator {
+        .title {
+            &-main {
+                padding-bottom: 32px;
+                margin-bottom: 35px;
+
+                &::after {
+                    @include ps-el;
+        
+                    background-image: $gradient-primary;
+                    height: 3px;
+                    width: 190px;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+        
+                    @include mq(lg) {
+                        height: 1px;
+                        width: 250px;
+                    }
+                }
+            }
+        }
+    }
+
+    &-center {
+        text-align: center;
+
+        .title {
+            &-main {
+                &::after {
+                    transform: translateX(-50%);
+                    left: 50%;
+                }
+            }
+        }
+    }
+}

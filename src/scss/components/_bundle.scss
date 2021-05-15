@@ -1,0 +1,162 @@
+.bundle {
+    position: relative;
+    flex: 1 1 auto;
+    border-radius: $border-radius;
+    padding: 30px 20px 20px;
+    overflow: hidden;
+    z-index: 1;
+
+    @include mq(lg) {
+        width: 310px;
+        padding: 20px 15px 0;
+        height: 395px;
+        margin-right: 10px;
+    }
+
+    @media screen and (max-width: 375px) {
+        width: 280px;
+    }
+
+    + .bundle {
+        margin-top: $grid-gutter-width;
+    }
+
+    &-content {
+        display: inline-block;
+        max-width: 340px;
+        z-index: 1;
+    }
+
+    &-list {
+        position: relative;
+        display: block;
+        width: 480px;
+        max-width: 50%;
+        float: right;
+
+        &::before {
+            @include ps-el;
+            @include absolute(0, false, 0, -20px);
+            @include linear-gradient-bg(top, (rgba($green-400, 0), $green-400, rgba($green-400, 0)) );
+
+            width: 1px;
+        }
+
+        @include mq(xxl) {
+            max-width: initial;
+            width: 60%;
+        }
+
+        @include mq(lg) {
+            display: none;
+        }
+    }
+
+    &-description {
+        margin-top: 6px;
+        font-size: 16px;
+        line-height: 19px;
+        color: $primary-800;
+
+        @include mq(lg) {
+            margin-top: 0;
+        }
+
+        &-title {
+            font-size: 16px;
+            line-height: 19px;
+            font-weight: 900;
+            margin-bottom: 5px;
+
+            @include mq(lg) {
+                font-size: 14px;
+                line-height: 17px;
+            }
+        }
+
+        &-content {
+            font-size: 12px;
+            line-height: 16px;
+            font-weight: 300;
+        }
+    }
+
+    &-cart {
+        @include flex(flex-start, center);
+        
+        @include mq(lg) {
+            margin-top: 25px;
+        }
+    }
+
+    &-image {
+        z-index: -1;
+
+        @include mq(lg) {
+            min-height: 170px;
+        }
+
+        > img {
+            @include absolute(false,0,0);
+
+            width: 100%;
+            height: 90%;
+            object-fit: contain;
+            object-position: right bottom;
+            pointer-events: none;
+
+            @include mq(lg) {
+                width: 50%;
+                right: -35px;
+            }
+        }
+    }
+
+    .title {
+        &-icon {
+            margin-left: -10px;
+            margin-bottom: 0;
+            margin-top: -5px;
+
+            @include mq(lg) {
+                margin-top: -10px;
+                max-height: 35px;
+            }
+        }
+
+        &-main {
+            font-size: 28px;
+            line-height: 32px;
+            padding-bottom: 0;
+
+            @include mq(lg) {
+                font-size: 16px;
+                line-height: 19px;
+            }
+        }
+
+        &-subtitle {
+            margin-bottom: 20px;
+
+            @include mq(lg) {
+                display: none;
+            }
+        }
+    }
+
+    @each $brand, $colors in $brand-gradient-base {
+        &-#{$brand} {
+            @include linear-gradient-bg(top, $colors);
+        }
+    }
+}
+
+.col-xxl-3 {
+    .bundle {
+        &-list {
+            @include absolute(false, 0, 60px, 10px);
+
+            max-width: calc(100% - 20px);
+        }
+    }
+}

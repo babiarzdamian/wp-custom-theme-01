@@ -1,0 +1,138 @@
+.bestseller {
+    height: 738px;
+
+    @include mq(lg) {
+        height: 560px;
+    }
+
+    &-background {
+        @include absolute(0,0,0,0);
+
+        background: $gray-100;
+        border-radius: $border-radius-md;
+        z-index: -1;
+
+        &::before {
+            @include ps-el;
+            @include absolute(0,0,0,0);
+
+            background-color: $green-100;
+            border-radius: $border-radius-md;
+            opacity: 0;
+            transition: $transition-fade;
+        }
+    }
+
+    &-logo {
+        @include absolute($top: 10px, $left: 10px);
+
+        width: 145px;
+        height: auto;
+
+        @include mq(lg) {
+            width: 60px;
+            top: -5px;
+        }
+    }
+
+    &-presentation {
+        height: 100%;
+        position: relative;
+
+        img {
+            @include absolute(50%, 0);
+
+            transform: translate(-10%, -50%);
+            transform-origin: center;
+            transition: transform .4s ease-in-out, opacity .4s ease-in-out .1s;
+
+            &:nth-child(1) {
+                transform: translate(-2%, -50%);
+            }
+
+            &:nth-child(2) {
+                transform: translate(-32%, -50%);
+            }
+
+            &:nth-child(3) {
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+    
+    &-content {
+        @include flex(center, flex-start);
+
+        height: 100%;
+        flex-direction: column;
+
+        @include mq(lg) {
+            justify-content: flex-start;
+            padding: 15px;
+            margin-top: 25px;
+        }
+    }
+
+    &-label {
+        @include letter-spacing(150);
+        
+        font-size: 18px;
+        line-height: 25px;
+        color: $green;
+        text-transform: uppercase;
+
+        @include mq(lg) {
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+    }
+
+    &-description {
+        color: $gray-700;
+
+        @include mq(lg) {
+            font-size: 14px;
+            line-height: 16px;
+        }
+    }
+
+    &:hover {
+        .bestseller {
+            &-background {
+                &::before {
+                    opacity: 1;
+                }
+            }
+
+            &-presentation {
+                img {
+                    transform: translate(-10%, -50%);
+
+                    &:nth-child(1) {
+                        transform: translate(-22%, -50%);
+                    }
+                    
+                    &:nth-child(1),
+                    &:nth-child(2) {
+                        opacity: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .title {
+        &-main {
+            font-size: 62px;
+            line-height: 60px;
+            margin-bottom: 40px;
+
+            @include mq(lg) {
+                font-size: 24px;
+                line-height: 26px;
+                margin-bottom: 5px;
+            }
+        }
+    }
+}

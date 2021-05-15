@@ -1,0 +1,108 @@
+@import 'variables';
+
+$breakpoints: '';
+@if variable-exists(grid-breakpoints) {
+    $breakpoints: $grid-breakpoints;
+} @else {
+    $breakpoints: (
+        "xs": 0,
+        "sm": 576px,
+        "md": 768px,
+        "lg": 992px,
+        "xl": 1080px
+    );
+}
+
+@mixin mq($width, $type: max) {
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+        @if $type == max {
+            $width: $width - 1px;
+        }
+        @media only screen and (#{$type}-width: $width) {
+            @content;
+        }
+    }
+}
+
+$horizontal-breakpoints: (
+    "sm": 451px,
+    "lg": 648px,
+    "xl": 768px,
+    "xxl": 928px,
+);
+
+@mixin hmq($height, $type: max) {
+    @if map_has_key($horizontal-breakpoints, $height) {
+        $height: map_get($horizontal-breakpoints, $height);
+        @if $type == max {
+            $height: $height - 1px;
+        }
+        @media only screen and (#{$type}-height: $height) {
+            @content;
+        }
+    }
+}
+
+@mixin flex($justify, $align: center) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin absolute($top: false, $right: false, $bottom: false, $left: false) {
+    position: absolute;
+    
+    @if $top != false {
+        top: $top;
+    }
+    
+    @if $right != false {
+        right: $right;
+    }
+    
+    @if $bottom != false {
+        bottom: $bottom;
+    }
+
+    @if $left != false {
+        left: $left;
+    }
+}
+
+@mixin ps-el() {
+    display: block;
+    content: "";
+}
+
+@mixin clearfix() {
+    display: block;
+    content: "";
+    clear: both;
+}
+
+@mixin transition($elem){
+    transition: $elem .35s ease-out;
+}
+
+@mixin letter-spacing($spacing) {
+    letter-spacing: ($spacing / 1000) * 1em;
+}
+
+@mixin linear-gradient-bg($direction: right, $colors) {
+    @if length($colors) == 1 {
+        $colors: append($colors, tint-color(nth($colors, 1), 48));
+    }
+    $gradient-values: ();
+    @for $i from 1 through length($colors) {
+        $position: 0;
+        @if ($i == 1) {
+            $position: 0%;
+        } @else {
+            $position: 100 / length($colors) * $i * 1%;
+        }
+        $gradient-values: append($gradient-values, nth($colors, $i) $position, $separator: comma)
+    }
+
+    background-image: linear-gradient(to $direction, $gradient-values),
+}

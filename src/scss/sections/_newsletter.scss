@@ -1,0 +1,32 @@
+.newsletter {
+    @include linear-gradient-bg(left, (rgba($gray-600, .59), rgba($gray-500,.59)));
+
+    color: $white;
+    text-align: center;
+    padding: 50px 0 36px;
+
+    
+    &-form { 
+        margin: 0 auto;
+
+        .form-control {
+            border-radius: $border-radius-lg;
+        }
+    }
+    
+    .container {
+        max-width: 430px + $grid-gutter-width;
+    }
+
+    .title {
+        &-icon {
+            height: 36px;
+            width: auto;
+            margin-bottom: 10px;
+        }
+
+        &-subtitle {
+            margin-bottom: 20px;
+        }
+    }
+}

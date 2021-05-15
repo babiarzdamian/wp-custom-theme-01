@@ -1,0 +1,105 @@
+.navbar {
+    background: $white;
+    height: $navbar-h;
+    z-index: $zindex-offcanvas + 1;
+    padding: 0;
+
+    @include mq(lg) {
+        height: $navbar-mobile-h;
+    }
+
+    @include hmq(lg) {
+        height: $navbar-mobile-h;
+    }
+
+    &::after {
+        @include ps-el();
+        @include absolute(false, 0, 0, 0);
+
+        height: 1px;
+        background-image: linear-gradient(to left, rgba($primary, 0), $primary, rgba($primary, 0));
+    }
+
+    &-logo {
+        &,
+        &-link {
+            display: block;
+
+            @include mq(lg) {
+                height: 35px;
+                width: 90px;
+            }
+        }
+    }
+
+    &-text {
+        @include mq(lg) {
+            font-size: 10px;
+        }
+    }
+
+    &-logo,
+    &-text {
+        @include mq(lg) {
+            position: relative;
+            left: -15px;
+        }
+    }
+
+    &-toggle {
+        @include flex(center);
+
+        margin-left: auto;
+        margin-right: 72px;
+
+        @include mq(lg) {
+            margin-right: 0;
+            height: 24px;
+        }
+
+        @media screen and (max-width: 375px) {
+            padding: 0 10px;
+        }
+
+        > * {
+            @include mq(lg) {
+                height: 22px;
+            }
+        }
+    }
+
+    &-cart {
+        &-indicator {
+            opacity: 0;
+        }
+    }
+}
+
+.admin-bar {
+    #wpadminbar {
+        @include mq(wp) {
+            position: fixed;
+            top: 0;
+        }
+    }
+
+    .navbar {
+        top: $wp-admin-h;
+        
+        @include mq(wp) {
+            top: $wp-admin-mobile-h;
+        }
+    }
+}
+
+body {
+    &:not(.cart-empty) {
+        .navbar {
+            &-cart {
+                &-indicator {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}

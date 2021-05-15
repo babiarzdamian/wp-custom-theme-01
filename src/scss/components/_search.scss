@@ -1,0 +1,57 @@
+.search {
+    &-form {
+        width: 100%;
+        position: relative;
+        margin-top: 35px;
+    }
+
+    &-wrapper {
+        @include flex(flex-start, center);
+
+        position: relative;
+        flex-direction: column;
+        width: 980px;
+        max-width: 100%;
+        padding: 20px 172px 0;
+        margin: 75px auto 0;
+        color: $white;
+        text-align: center;
+
+        @include mq(md) {
+            padding: 20px;
+        }
+
+        > p {
+            font-size: 20px;
+            line-height: 25px;
+        }
+
+    }
+
+    &-input {
+        height: 55px;
+        width: 658px;
+        max-width: 100%;
+        border: transparent;
+        border-radius: $border-radius-lg;
+        font-size: 20px;
+        padding-left: 30px;
+
+        &::placeholder {
+            color: $gray-500;
+        }
+    }
+
+    &-submit {
+        @include absolute(0, 0);
+
+        height: 55px;
+        width: 55px;
+    }
+
+    .title {
+        &-subtitle {
+            color: $primary-600;
+        }
+    }
+}

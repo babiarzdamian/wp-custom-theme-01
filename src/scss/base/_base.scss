@@ -1,0 +1,38 @@
+html,
+body {
+    min-height:100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizelegibility;
+    font-family: $font-family-base;
+    padding-top: $navbar-h;
+
+    &::before {
+        @include ps-el;
+        position: fixed;
+        top: 0;
+        opacity: 0;
+        transition: $transition-base;
+        height: 100vh;
+    }
+
+    @include mq(lg) {
+        padding: $navbar-mobile-h 5px 0;
+    }
+}
+
+.clear {
+    &::before,
+    &::after {
+        content:' ';
+        display: table;
+    }
+
+    &::after {
+        clear: both;
+    }
+}

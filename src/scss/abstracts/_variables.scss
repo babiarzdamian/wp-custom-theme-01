@@ -1,0 +1,187 @@
+// Base variables
+$wp-admin-h: 32px;
+$wp-admin-mobile-h: 46px;
+$navbar-h: 108px;
+$navbar-mobile-h: 50px;
+
+// Color system
+$white: #fff;
+$gray-100: #F6F7FB;
+$gray-200: #efefef;
+$gray-300: #e5e5e5;
+$gray-500: #b1b1b1;
+$gray-600: #939393;
+$gray-700: #6e6e6e;
+$black: #000;
+
+$primary: #dca958;
+$primary-600: #a7762d;
+$primary-800: #80520f;
+$secondary: #00c;
+$light: $white;
+$dark: $black;
+
+$green-100: #EBFFEF;
+$green-200: #D8FFC9;
+$green-300: #B2D982;
+$green-400: #76B628;
+$green: #2c8609;
+
+$cyan-100: #ECEEF5;
+$cyan-200: #EAF7FF;
+$cyan-300: #ADC6EF;
+$cyan: #43B4FA;
+$indigo-300: #EBE0FC;
+$indigo: #6e4f9a;
+$red: #DA0010;
+$yellow: #FFEC50;
+$yellow-200: #FFFDED;
+$yellow-300: #E8E3B9;
+$teal-200: #EBFAF9;
+$teal-300: #D2E8E7;
+$teal: #04BCAF;
+
+
+$gradient-primary: linear-gradient(to right, $primary 0%, $primary-600 100%);
+$gradient-gray: linear-gradient(to right, $gray-500 0%, $gray-600 100%);
+
+$theme-colors: (
+    'primary': $primary,
+    'secondary': $secondary,
+    'brand-a': $gray-500,
+    'brand-bf': $teal,
+    'brand-b': $indigo,
+    'brand-f': $yellow,
+    'brand-l': $green,
+    'brand-le': $cyan,
+    'light': $light,
+    'dark': $dark,
+);
+
+$brand-gradient-base: (
+    'brand-a': (
+        $gray-300,
+        $gray-100
+    ),
+    'brand-bf': (
+        $teal-300,
+        $teal-200
+    ),
+    'brand-b': (
+        $indigo-300
+    ),
+    'brand-f': (
+        $yellow-300,
+        $yellow-200
+    ),
+    'brand-le': (
+        rgba($cyan-300, 0.81),
+        rgba($cyan-100, 0.81)
+    ),
+    'brand-l': (
+        rgba($green-300, 0.59),
+        rgba($green-200, 0.59)
+    )
+);
+
+// Options
+$enable-smooth-scroll: false;
+
+// Body
+$body-color: $black;
+
+// Components
+$border-radius-sm: 5px;
+$border-radius: 10px;
+$border-radius-md: 20px;
+$border-radius-lg: 30px;
+
+// Typography
+$font-family-base: 'Lato', Helvetica, Arial, sans-serif;
+$headings-font-family: Arial, sans-serif;
+$headings-font-weight: 700;
+$font-weight-bolder: 900;
+
+$font-size-base: 1rem;
+
+$h1-font-size: $font-size-base * 3.875;
+$h2-font-size: $font-size-base * 2.5;
+$h3-font-size: $font-size-base * 1.75;
+$h4-font-size: $font-size-base * 1.3125;
+$h5-font-size: $font-size-base * 1.125;
+
+$font-sizes: (
+    1: $h1-font-size,
+    2: $h2-font-size,
+    3: $h3-font-size,
+    4: $h4-font-size,
+    5: $h5-font-size,
+);
+
+$lead-font-size: $h5-font-size;
+$lead-font-weight: 700;
+
+// Grid breakpoints
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    wp: 782px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1440px,
+);
+
+// Grid containers
+$container-max-widths: (
+    xxl: 1820px,
+);
+
+// Spacing
+$spacer: 1rem;
+$spacers: (
+    0: 0,
+    1: $spacer / 4,
+    2: $spacer * 2 / 3,
+    3: $spacer,
+    4: $spacer * 1.5,
+    5: $spacer * 3,
+    6: $spacer * 4,
+    7: $spacer * 5,
+);
+
+// Grid columns
+$grid-columns: 12;
+$grid-gutter-width: 30px;
+
+// Offcanvas
+$offcanvas-horizontal-width: 430px;
+$offcanvas-border-width: 0;
+$offcanvas-padding-y: 0;
+$offcanvas-padding-x: 0;
+
+// Buttons
+$input-btn-focus-color-opacity: .15;
+$component-active-bg: $black;
+
+$btn-font-size: 21px;
+$btn-padding-y: 3px;
+$btn-padding-x: 18px;
+$btn-padding-y-sm: 3px;
+$btn-padding-x-sm: 12px;
+$btn-font-size-sm: 17px;
+
+$btn-link-color: $black;
+$btn-link-hover-color: $black;
+
+// Components
+$transition-base: all 0.35s ease-in-out !default;
+
+// Forms
+$form-check-input-width: 17px;
+$form-check-padding-start: $form-check-input-width + 10px;
+$form-check-margin-bottom: 0;
+$form-check-margin-top: 0;
+
+$form-check-input-checked-color: $black;
+$form-check-input-checked-bg-color: $white;
